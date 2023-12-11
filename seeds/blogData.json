@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Why MVC is so important",
+    "content": "MVC allows developers to maintain a true separation of concerns, devising their code between the Model layer for data, the View layer for design, and the Controller layer for application logic.",
+    "user_id": 1,
+    "posted_date": "2023-12-10T10:00:00Z"
+  },
+  {
+    "title": "Authentication vs. Authorization",
+    "content": "There is a difference between authentication and authorization. Authentication means confirming your own identity, whereas authorization means being allowed access to the system.",
+    "user_id": 2,
+    "posted_date": "2023-12-10T11:15:00Z"
+  },
+  {
+    "title": "Object-Relational Mapping",
+    "content": "I have really loved learning about ORMs. It's really simplified the way I create queries in SQL!",
+    "user_id": 3,
+    "posted_date": "2023-12-10T12:30:00Z"
+  },
+  {
+    "title": "The Future of Web Development",
+    "content": "Exploring the latest trends and technologies shaping the future of web development. From serverless architecture to AI-driven user experiences.",
+    "user_id": 1,
+    "posted_date": "2023-12-10T14:00:00Z"
+  },
+  {
+    "title": "Building Scalable Microservices",
+    "content": "Discover the key principles and best practices for designing and implementing scalable microservices architectures. Learn from real-world examples and case studies.",
+    "user_id": 2,
+    "posted_date": "2023-12-10T15:45:00Z"
+  },
+  {
+    "title": "The Art of Code Review",
+    "content": "Code reviews are a crucial part of the development process. Explore strategies for effective code reviews, fostering collaboration, and maintaining code quality.",
+    "user_id": 3,
+    "posted_date": "2023-12-10T17:00:00Z"
+  },
+  {
+    "title": "JavaScript Frameworks Comparison",
+    "content": "A comprehensive comparison of popular JavaScript frameworks - React, Angular, and Vue. Explore their strengths, weaknesses, and use cases.",
+    "user_id": 1,
+    "posted_date": "2023-12-10T18:30:00Z"
+  },
+  {
+    "title": "Getting Started with Docker",
+    "content": "Dive into the world of containerization with Docker. Learn the basics, container orchestration, and how Docker can streamline your development and deployment processes.",
+    "user_id": 2,
+    "posted_date": "2023-12-10T20:00:00Z"
+  }
+]

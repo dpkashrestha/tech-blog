@@ -1,0 +1,50 @@
+[
+    {
+      "content": "I completely agree! MVC makes the codebase so much more organized and scalable.",
+      "blog_id": 1,
+      "user_id": 4,
+      "posted_date": "2023-12-10T10:30:00Z"
+    },
+    {
+      "content": "Understanding the difference between authentication and authorization is crucial for building secure systems. Great explanation!",
+      "blog_id": 2,
+      "user_id": 5,
+      "posted_date": "2023-12-10T11:45:00Z"
+    },
+    {
+      "content": "ORMs are a game-changer! They simplify database interactions and make the development process more efficient.",
+      "blog_id": 3,
+      "user_id": 6,
+      "posted_date": "2023-12-10T12:45:00Z"
+    },
+    {
+      "content": "Excited to explore the future of web development! The industry is evolving rapidly.",
+      "blog_id": 4,
+      "user_id": 7,
+      "posted_date": "2023-12-10T14:30:00Z"
+    },
+    {
+      "content": "Microservices are indeed the way forward for building scalable and maintainable applications.",
+      "blog_id": 5,
+      "user_id": 8,
+      "posted_date": "2023-12-10T16:00:00Z"
+    },
+    {
+      "content": "Code reviews are an art form. They contribute significantly to code quality and team collaboration.",
+      "blog_id": 6,
+      "user_id": 9,
+      "posted_date": "2023-12-10T17:30:00Z"
+    },
+    {
+      "content": "I've been using React, but this comparison will help me make more informed decisions. Thanks!",
+      "blog_id": 7,
+      "user_id": 10,
+      "posted_date": "2023-12-10T19:00:00Z"
+    },
+    {
+      "content": "Docker has revolutionized my development workflow. It's incredible how it simplifies deployment.",
+      "blog_id": 8,
+      "user_id": 11,
+      "posted_date": "2023-12-10T20:30:00Z"
+    }
+  ]
