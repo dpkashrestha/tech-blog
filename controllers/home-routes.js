@@ -1,24 +1,16 @@
-const router = require('express').Router();
-// const { Gallery, Painting } = require('../models');
+const router = require("express").Router();
+const { Blog, Comment} = require("../models");
 
-// GET all galleries for homepage
-router.get('/', async (req, res) => {
+// GET all blogs for homepage
+router.get("/", async (req, res) => {
   try {
-    // const dbGalleryData = await Gallery.findAll({
-    //   include: [
-    //     {
-    //       model: Painting,
-    //       attributes: ['filename', 'description'],
-    //     },
-    //   ],
-    // });
+    const dbBlogData = await Blog.findAll();
 
-    // const galleries = dbGalleryData.map((gallery) =>
-    //   gallery.get({ plain: true })
-    // );
+    const blogs = dbBlogData.map((blog) => blog.get({ plain: true }));
+
     // Send over the 'loggedIn' session variable to the 'homepage' template
-    res.render('homepage', {
-      // galleries,
+    res.render("homepage", {
+      blogs,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
@@ -27,57 +19,70 @@ router.get('/', async (req, res) => {
   }
 });
 
-// // GET one gallery
-// router.get('/gallery/:id', async (req, res) => {
-//   try {
-//     const dbGalleryData = await Gallery.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: Painting,
-//           attributes: [
-//             'id',
-//             'title',
-//             'artist',
-//             'exhibition_date',
-//             'filename',
-//             'description',
-//           ],
-//         },
-//       ],
-//     });
+// GET all blogs for homepage
+router.get("/dashboard", async (req, res) => {
+  try {
+    const dbBlogData = await Blog.findAll({
+      // order: ["title"],
+      where: {
+        // Only get books that have this boolean set to TRUE
+        user_id: req.session.userId,
+      },
+    });
 
-//     const gallery = dbGalleryData.get({ plain: true });
-//     // Send over the 'loggedIn' session variable to the 'gallery' template
-//     res.render('gallery', { gallery, loggedIn: req.session.loggedIn });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
+    const blogs = dbBlogData.map((blog) => blog.get({ plain: true }));
 
-// // GET one painting
-// router.get('/painting/:id', async (req, res) => {
-//   try {
-//     const dbPaintingData = await Painting.findByPk(req.params.id);
+    // Send over the 'loggedIn' session variable to the 'homepage' template
+    res.render("dashboard", {
+      blogs,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
-//     const painting = dbPaintingData.get({ plain: true });
-//     // Send over the 'loggedIn' session variable to the 'homepage' template
-//     res.render('painting', { painting, loggedIn: req.session.loggedIn });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
+ // GET one blog
+router.get('/blog/:id', async (req, res) => {
+  try {
+    const dbBlogData = await Blog.findByPk(req.params.id, {
+      include: [
+        {
+          model: Comment
+        },
+      ],
+    });
+
+    const blog = dbBlogData.get({ plain: true });
+    // Send over the 'loggedIn' session variable to the 'blog' template
+    res.render('blog-comment', { blog, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 // Login route
-router.get('/login', (req, res) => {
+router.get("/login", (req, res) => {
   // If the user is already logged in, redirect to the homepage
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.redirect("/");
     return;
   }
   // Otherwise, render the 'login' template
-  res.render('login');
+  res.render("login");
+});
+
+// Signup route
+router.get("/signup", (req, res) => {
+  // If the user is already logged in, redirect to the homepage
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+  // Otherwise, render the 'signup' template
+  res.render("signup");
 });
 
 module.exports = router;

@@ -1,36 +1,39 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Registry</title>
-  <link rel="stylesheet" href="/css/jass.css">
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Tech Blog</title>
+    <link rel="stylesheet" type="text/css" href="/css/jass.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  </head>
 
-<body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
-      User Registry
-    </h1>
-    <!-- Only display the logout button if the user is logged in -->
-    {{#if logged_in}}
-    <nav>
-      <button class="btn" id="logout">logout</button>
-    </nav>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <!-- If the user is logged in, show a logout button -->
+        {{#if loggedIn}}
+          <a href="/dashboard">Dashboard</a>
+          <a id="logout" class="btn-no-style">Logout</a>
+        {{else}}
+          <!-- Otherwise, show a link to login -->
+          <a href="/login">Login</a>
+          <a href="/signup">Signup</a>
+        {{/if}}
+      </nav>
+      <h1>The Tech Blog</h1>
+    </header>
+
+    <main>
+      <div class="tech-blog">
+        {{{body}}}
+      </div>
+    </main>
+    <!-- If the user is logged in, load the JS script for when they logout -->
+    {{#if loggedIn}}
+      <script src="/js/logout.js"></script>
     {{/if}}
-  </header>
-  <main class="container container-fluid mt-5">
-    {{{ body }}}
-  </main>
-  <footer>
-      
-  </footer>
-
-  <!-- Only include the logout script if the user is logged in -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-</body>
+  </body>
 
 </html>

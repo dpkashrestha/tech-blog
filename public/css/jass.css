@@ -970,7 +970,7 @@ a:hover {
 }
 
 .btn {
-  text-align: center;
+  text-align:justify;
   display: inline-block;
   padding: 0.5rem 1.2rem;
   margin: 0;
@@ -1003,13 +1003,13 @@ a:hover {
 }
 
 .btn.btn-block {
-  width: 100%;
+  width: 300%;
   display: block;
   text-align: center;
 }
 
 .btn.btn-primary {
-  background-color: #2d3e50;
+  background-color: #0a0b0b;
   color: #d9e9e8;
 }
 

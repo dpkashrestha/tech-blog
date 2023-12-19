@@ -1,0 +1,51 @@
+{{!-- {{> blog-details blog}}
+
+{{#each blog.comments as | comment|}}
+{{> comment-details}}
+{{/each}}
+
+<section class="card">
+    <form class="form comment-form">
+        <input id="comment-content"></input>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Sumbit</button>    
+        </div>
+        
+    </form>
+ </section>
+
+ <script src="/js/blog-comment.js"></script> --}}
+
+
+ <!-- Blog Post Card -->
+<section class="card blog-card">
+    <div class="card-body">
+        <h2 class="card-title">{{blog.title}}</h2>
+        <p class="card-text">{{blog.content}}</p>
+        <p class="card-author">Author: {{blog.author}}</p>
+    </div>
+</section>
+
+<!-- Comments Section -->
+<section class="comments-section">
+    <h5>Comments</h3>
+    {{#each blog.comments as |comment|}}
+        {{> comment-details comment}}
+    {{/each}}
+
+    <!-- New Comment Form -->
+    <section class="card comment-form-card">
+        <form class="form comment-form">
+            <input type="hidden" id="blog-id" value="{{blog.id}}">
+            <div class="form-group">
+                <label for="comment-content">Add a Comment:</label>
+                <input id="comment-content" class="form-control" placeholder="Type your comment here" required>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </form>
+    </section>
+</section>
+
+<script src="/js/blog-comment.js"></script>
