@@ -29,6 +29,8 @@ npm install
 3. Strat the server: `npm run start`
 
 ## Screenshot
+<img width="1596" alt="tech-blog" src="https://github.com/dpkashrestha/tech-blog/assets/142865374/1f805eeb-1bda-46ed-9ac2-a2acee853bc2">
+
 
 ## Deployed App
 
