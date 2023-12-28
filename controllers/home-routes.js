@@ -63,6 +63,29 @@ router.get('/blog/:id', async (req, res) => {
   }
 });
 
+router.get('/edit-blog/:id', async (req, res) => {
+  try {
+    const dbBlogData = await Blog.findByPk(req.params.id);
+
+    const blog = dbBlogData.get({ plain: true });
+    // Send over the 'loggedIn' session variable to the 'blog' template
+    res.render('edit-blog', { blog, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/create-blog', async (req, res) => {
+  try {
+    // Send over the 'loggedIn' session variable to the 'blog' template
+    res.render('create-blog', {loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 // Login route
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect to the homepage

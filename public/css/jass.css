@@ -911,9 +911,7 @@ a:hover {
   color: #000000 !important;
 }
 
-.text-link {
-  color: #1b89bc !important;
-}
+
 
 /* BACKGROUND UTILS */
 .bg-primary {
@@ -944,9 +942,7 @@ a:hover {
   background-color: #000000 !important;
 }
 
-.bg-link {
-  background-color: #1b89bc !important;
-}
+
 
 /* DISPLAY */
 .display-none {
@@ -1026,11 +1022,6 @@ a:hover {
   background-color: #ee8294;
 }
 
-.btn.btn-info {
-  background-color: #1bbc9b;
-  color: #ffffff;
-}
-
 .btn.btn-info:hover {
   background-color: #31e1bd;
 }
@@ -1069,15 +1060,6 @@ a:hover {
 
 .btn.btn-black:hover {
   background-color: #666666;
-}
-
-.btn.btn-link {
-  background-color: #1b89bc;
-  color: #ffffff;
-}
-
-.btn.btn-link:hover {
-  background-color: #31a9e1;
 }
 
 .card {
