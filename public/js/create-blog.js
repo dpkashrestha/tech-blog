@@ -3,6 +3,8 @@ const createFormHandler = async (event) => {
     event.preventDefault();
   
     // Gather the data from the form elements on the page
+    const posted_date = new Date();
+    const user_id = document.getElementById('user-id').value;
     const title = document.getElementById('blog-title').value.trim();
     const content = document.getElementById('blog-content').value.trim();
   
@@ -13,8 +15,8 @@ const createFormHandler = async (event) => {
         body: JSON.stringify({
             title, 
             content,
-            user_id: 4,
-            posted_date: "2023-12-10T12:45:00Z",
+            user_id,
+            posted_date,
         }),
         headers: { 'Content-Type': 'application/json' },
       });

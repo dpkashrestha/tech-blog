@@ -1,10 +1,16 @@
 const router = require("express").Router();
-const { Blog, Comment} = require("../models");
+const { User, Blog, Comment } = require("../models");
 
 // GET all blogs for homepage
 router.get("/", async (req, res) => {
   try {
-    const dbBlogData = await Blog.findAll();
+    const dbBlogData = await Blog.findAll({
+      include: [
+        {
+          model: User,
+        },
+      ],
+    });
 
     const blogs = dbBlogData.map((blog) => blog.get({ plain: true }));
 
@@ -12,6 +18,8 @@ router.get("/", async (req, res) => {
     res.render("homepage", {
       blogs,
       loggedIn: req.session.loggedIn,
+      username: req.session.username,
+      pageHeader: "The Tech Blog",
     });
   } catch (err) {
     console.log(err);
@@ -36,6 +44,9 @@ router.get("/dashboard", async (req, res) => {
     res.render("dashboard", {
       blogs,
       loggedIn: req.session.loggedIn,
+      userId: req.session.userId,
+      username: req.session.username,
+      pageHeader: "Your Dashboard",
     });
   } catch (err) {
     console.log(err);
@@ -43,43 +54,65 @@ router.get("/dashboard", async (req, res) => {
   }
 });
 
- // GET one blog
-router.get('/blog/:id', async (req, res) => {
+// GET one blog
+router.get("/blog/:id", async (req, res) => {
   try {
     const dbBlogData = await Blog.findByPk(req.params.id, {
       include: [
         {
-          model: Comment
+          model: Comment,
+          include: [
+            {
+              model: User,
+            },
+          ]
+        },
+        {
+          model: User,
         },
       ],
     });
 
     const blog = dbBlogData.get({ plain: true });
     // Send over the 'loggedIn' session variable to the 'blog' template
-    res.render('blog-comment', { blog, loggedIn: req.session.loggedIn });
+    res.render("blog-comment", { 
+      blog, 
+      loggedIn: req.session.loggedIn,
+      userId: req.session.userId,
+      username: req.session.username,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-router.get('/edit-blog/:id', async (req, res) => {
+router.get("/edit-blog/:id", async (req, res) => {
   try {
     const dbBlogData = await Blog.findByPk(req.params.id);
 
     const blog = dbBlogData.get({ plain: true });
     // Send over the 'loggedIn' session variable to the 'blog' template
-    res.render('edit-blog', { blog, loggedIn: req.session.loggedIn });
+    res.render("edit-blog", { 
+      blog, 
+      loggedIn: req.session.loggedIn,
+      userId: req.session.userId,
+      username: req.session.username,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-router.get('/create-blog', async (req, res) => {
+router.get("/create-blog", async (req, res) => {
   try {
     // Send over the 'loggedIn' session variable to the 'blog' template
-    res.render('create-blog', {loggedIn: req.session.loggedIn });
+    res.render("create-blog", { 
+      loggedIn: req.session.loggedIn,
+      userId: req.session.userId,
+      username: req.session.username,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

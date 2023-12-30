@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const moment = require('moment');
 
 
 const routes = require('./controllers');
@@ -13,7 +14,13 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3002;
 
-const hbs = exphbs.create({});
+const hbs = exphbs.create({
+  helpers: {
+  formatDate: function (date, format) {
+    return moment(date).format(format);
+  },
+},
+});
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');

@@ -3,8 +3,10 @@ const submitCommentFormHandler = async (event) => {
   event.preventDefault();
 
   // Gather the data from the form elements on the page
-  const blogId = document.querySelector("#blog-id").value.trim();
-  const commentData = document.querySelector("#comment-content").value.trim();
+  const posted_date = new Date();
+  const user_id = document.getElementById('user-id').value;
+  const blog_id = document.getElementById("blog-id").value.trim();
+  const commentData = document.getElementById("comment-content").value.trim();
 
   if (commentData) {
     // Send the username and password to the server
@@ -12,15 +14,15 @@ const submitCommentFormHandler = async (event) => {
       method: "POST",
       body: JSON.stringify({
         content: commentData,
-        blog_id: blogId,
-        user_id: 4,
-        posted_date: "2023-12-10T12:45:00Z",
+        blog_id,
+        user_id,
+        posted_date,
       }),
       headers: { "Content-Type": "application/json" },
     });
 
     if (response.ok) {
-      document.location.replace(`/blog/${blogId}`);
+      document.location.replace(`/blog/${blog_id}`);
     } else {
       alert("Failed to create comment");
     }

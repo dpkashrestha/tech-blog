@@ -1,9 +1,9 @@
 
 <a href="/blog/{{id}}" class="blog-card-link">
-  <div class="blog-card">
+  <div class="card-details">
     <div class="card-header">
       <h2 class="post-title">{{title}}</h2>
-      <p class="post-info">Posted by User {{user_id}} on {{posted_date}}</p>
+      <p class="post-info">Posted by <b>{{user.username}}</b> on {{formatDate posted_date "ddd MMM DD YYYY"}}</p>
     </div>
     <div class="card-body">
       <p class="post-content">{{content}}</p>

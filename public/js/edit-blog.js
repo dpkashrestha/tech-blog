@@ -3,6 +3,7 @@ const editFormHandler = async (event) => {
     event.preventDefault();
   
     // Gather the data from the form elements on the page
+    const posted_date = new Date();
     const id = document.getElementById('blog-id').value.trim();
     const title = document.getElementById('blog-title').value.trim();
     const content = document.getElementById('blog-content').value.trim();
@@ -11,7 +12,7 @@ const editFormHandler = async (event) => {
       
       const response = await fetch(`/api/blogs/${id}`, {
         method: 'PUT',
-        body: JSON.stringify({ id, title, content }),
+        body: JSON.stringify({ id, title, content, posted_date }),
         headers: { 'Content-Type': 'application/json' },
       });
   

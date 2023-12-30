@@ -22,7 +22,12 @@
           <a href="/signup">Signup</a>
         {{/if}}
       </nav>
-      <h1>The Tech Blog</h1>
+      <div class="site-heading">
+        <h1>{{pageHeader}}</h1>
+         {{#if loggedIn}}
+        <p>Welcome {{username}}!</p>
+        {{/if}}
+      </div>
     </header>
 
     <main>

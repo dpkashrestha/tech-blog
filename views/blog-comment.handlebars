@@ -1,51 +1,41 @@
-{{!-- {{> blog-details blog}}
-
-{{#each blog.comments as | comment|}}
-{{> comment-details}}
-{{/each}}
-
-<section class="card">
-    <form class="form comment-form">
-        <input id="comment-content"></input>
-        <div class="form-group">
-            <button class="btn btn-primary" type="submit">Sumbit</button>    
-        </div>
-        
-    </form>
- </section>
-
- <script src="/js/blog-comment.js"></script> --}}
-
-
- <!-- Blog Post Card -->
-<section class="card blog-card">
-    <div class="card-body">
-        <h2 class="card-title">{{blog.title}}</h2>
-        <p class="card-text">{{blog.content}}</p>
-        <p class="card-author">Author: {{blog.author}}</p>
+<section class="card-details">
+    <div class="card-header">
+      <h2 class="post-title">{{blog.title}}</h2>
+      <p class="post-info">Posted by <b>{{blog.user.username}}</b> on {{formatDate blog.posted_date "ddd MMM DD YYYY"}}</p>
     </div>
-</section>
+    <div class="card-body">
+      <p class="post-content">{{blog.content}}</p>
+    </div>
+  </section>
 
 <!-- Comments Section -->
 <section class="comments-section">
-    <h5>Comments</h3>
+    <h3>Comments:</h3>
     {{#each blog.comments as |comment|}}
         {{> comment-details comment}}
     {{/each}}
+    </section>
 
     <!-- New Comment Form -->
-    <section class="card comment-form-card">
+    {{#if loggedIn}}
+    <section class="card card-details">
         <form class="form comment-form">
             <input type="hidden" id="blog-id" value="{{blog.id}}">
+            <input type="hidden" id="user-id" value="{{userId}}">
             <div class="form-group">
                 <label for="comment-content">Add a Comment:</label>
                 <input id="comment-content" class="form-control" placeholder="Type your comment here" required>
             </div>
             <div class="form-group">
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-primary" type="button">Submit</button>
             </div>
         </form>
     </section>
-</section>
+    {{else}}
+    <section class="card card-details">
+        <p><i>You need to be logged in to leave a comment.</i></p>
+    </section>
+    {{/if}}
+
 
 <script src="/js/blog-comment.js"></script>

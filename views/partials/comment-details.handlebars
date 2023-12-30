@@ -1,14 +1,6 @@
-{{!-- <section class="card"> Comment:
-    <div class="card-body">
-      <p class="post-content">{{content}}</p>
-      <p>By: {{user_id}}</p>
-    </div>
- </section> --}}
-
-
- <section class="card comment-card">
+ <div class="card card-details">
     <div class="card-body">
         <p class="comment-content">{{content}}</p>
-        <p class="comment-author">By: {{user_id}}</p>
+        <p class="comment-author">- {{user.username}}, {{formatDate posted_date "ddd MMM DD YYYY"}}</p>
     </div>
-</section>
+</div>

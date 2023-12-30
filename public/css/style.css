@@ -13,6 +13,13 @@ h1 {
   height: 150px;
 }
 
+.site-heading {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: black;
+}
 
 nav {
   display:flex;
@@ -76,7 +83,9 @@ input:hover {
 
 .box-card {
   max-width: 1500px;
-  margin: 0 auto;
+  height: 370px;
+  margin-top: 20px;
+  margin-left: 70px;
   padding: 20px;
   border: 2px solid #0e0c0c;
   border-radius: 8px;
@@ -84,16 +93,19 @@ input:hover {
   background-color: #fff;
 }
 
+h3 {
+  text-align:center;
+}
 
 /* -------- blog-details.handlebars -------*/
-.blog-card {
+.card-details {
   max-width: 1500px;
   margin: 20px;
   padding: 15px;
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: #f8f9fa;
 }
 
 .blog-card-link {
@@ -116,16 +128,10 @@ input:hover {
     padding: 15px;
 }
 
-.blog-card {
-    background-color: #f8f9fa;
-}
-
-.comment-card {
-    background-color: #fff;
-}
-
-.comment-card .card-body {
-    padding: 10px;
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px black solid;
 }
 
 .comment-form-card {
@@ -147,4 +153,13 @@ input:hover {
   text-align: center;
   margin-top: 0.6em;
   float: right;
+}
+
+.btn-primary, .btn-danger {
+  padding: 10px;
+  margin: 20px;
+}
+
+.btn-primary:hover {
+  background-color: rgb(237, 234, 228);
 }
